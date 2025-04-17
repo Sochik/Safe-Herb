@@ -5,6 +5,9 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import About from "./pages/About";
+import FAQ from "./pages/FAQ";
+import Contact from "./pages/Contact";
 
 
 
@@ -28,13 +31,21 @@ const PageRoutes = createBrowserRouter([
     element: <PageLayout />,
     children: [
       {
-        path: "/",
-        element: (
-          <Home />
-        ),
+        path: "/Home",
+        element: <Home />,
       },
-
-
+      {
+        path: "/About",
+        element: <About />,
+      },
+      {
+        path: "/Contact",
+        element: <Contact />,
+      },
+      {
+        path: "/FAQ",
+        element: <FAQ />,
+      },
     ],
   },
 ]);

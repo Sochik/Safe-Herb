@@ -71,6 +71,7 @@ export default function Navbar() {
           <div className="flex flex-col items-start gap-2 w-full md:justify-center md:flex-row md:item-center md:gap-7">
             {[
               { name: "Home", to: "/Home" },
+              {name:"Shop", to: "/Shop"},
               { name: "About", to: "/About" },
               { name: "Services", to: "/Services" },
               { name: "Contact Us", to: "/Contact" },

@@ -1,9 +1,9 @@
 import React from "react";
 import Slider from "../components/Slider";
-import {asideData,  benefits, reviews } from "../data/asideData";
+import { asideData, benefits, reviews } from "../data/asideData";
 import { Link } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="md:min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="container mx-auto h-fit md:h-screen flex items-center">
+      <section className="container mx-auto h-fit md:h-screen flex items-center z-10">
         <aside className="w-full h-full">
           <Slider />
         </aside>

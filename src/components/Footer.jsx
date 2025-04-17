@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link, useLocation } from "react-router-dom"; // Import useLocation
 import { LuFacebook, LuInstagram } from "react-icons/lu";
 import { PiTiktokLogo } from "react-icons/pi";
 
 export default function Footer() {
+  const location = useLocation(); // Get the current route
+
   return (
     <footer className="bg-dark text-highlight pt-20 pb-10">
       {/* Contact Section */}
@@ -22,47 +24,35 @@ export default function Footer() {
       {/* Navigation Links */}
       <div className="container mx-auto flex flex-col items-center justify-center">
         <ul className="flex flex-col gap-4 text-center text-gray-400 mb-4">
-          <li>
-            <Link to="/" className="text-lg font-light hover:text-highlight transition-all">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/shop" className="text-lg font-light hover:text-highlight transition-all">
-              Shop
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="text-lg font-light hover:text-highlight transition-all">
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link to="/terms" className="text-lg font-light hover:text-highlight transition-all">
-              Terms of Service
-            </Link>
-          </li>
-          <li>
-            <Link to="/privacy" className="text-lg font-light hover:text-highlight transition-all">
-              Privacy Policy
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="text-lg font-light hover:text-highlight transition-all">
-              Contact Us
-            </Link>
-          </li>
-          <li>
-            <Link to="/faq" className="text-lg font-light hover:text-highlight transition-all">
-              FAQ
-            </Link>
-          </li>
+          {[
+            { name: "Home", path: "/Home" },
+            { name: "Shop", path: "/shop" },
+            { name: "About Us", path: "/about" },
+            { name: "Terms of Service", path: "/terms" },
+            { name: "Privacy Policy", path: "/privacy" },
+            { name: "Contact Us", path: "/contact" },
+            { name: "FAQ", path: "/faq" },
+          ].map((link) => (
+            <li key={link.path}>
+              <Link
+                to={link.path}
+                className={`text-lg font-light transition-all ${
+                  location.pathname === link.path
+                    ? "text-highlight font-bold"
+                    : "hover:text-highlight"
+                }`}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
 
       {/* Copyright Section */}
       <small className="pt-5 border-t border-light opacity-50 justify-center flex text-xs">
-        Copyright &copy; {new Date().getFullYear()} Safe Herb. All rights reserved.
+        Copyright &copy; {new Date().getFullYear()} Safe Herb. All rights
+        reserved.
       </small>
 
       {/* Social Media Links */}

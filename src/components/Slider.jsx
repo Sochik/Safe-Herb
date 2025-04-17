@@ -13,7 +13,7 @@ export default function Slider() {
       id: 1,
       image: HeroSlider1,
       title: (
-        <div className="text-center">
+        <div className="text-center z-10">
           <h2 className="text-secondary font-extrabold text-xl md:text-5xl">
             Mushroom Supplements
           </h2>
@@ -36,7 +36,7 @@ export default function Slider() {
       id: 2,
       image: HeroSlider2,
       title: (
-        <div className="flex ">
+        <div className="flex z-10">
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-tertiary font-bold text-2xl md:text-4xl">
               Have you tried Mushroom Edibles?
@@ -60,7 +60,7 @@ export default function Slider() {
       id: 3,
       image: HeroSlider3,
       title: (
-        <div className="text-center ">
+        <div className="text-center z-10">
           <h2 className="text-gray-800 font-bold text-2xl md:text-5xl bg-slate-400 bg-opacity-50 p-4 rounded-md">
             Select from a vast range of alternative remedies
           </h2>
@@ -87,7 +87,7 @@ export default function Slider() {
         {images.map((item) => (
           <SwiperSlide
             key={item.id}
-            className="w-full h-full flex items-center justify-center bg-cover bg-no-repeat bg-center"
+            className="w-full h-full flex items-center justify-center bg-cover bg-no-repeat bg-center z-10"
             style={{ backgroundImage: `url(${item.image})` }}
           >
             <div className="text-center w-fit mx-auto my-[26.5%] md:my-[18.5%]">
