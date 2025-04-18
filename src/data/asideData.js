@@ -101,5 +101,6 @@ const reviews = [
     purchase: "Purchased Herb Chocolate Bars",
   },
 ];
+
 // Export arrays
-export { asideData, benefits, reviews };
+export { asideData, benefits, reviews  };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { faqmushroom } from "../assets/images";
 import { FaChevronRight, FaPlus } from "react-icons/fa";
 import faqData from "../data/faqData";
@@ -18,7 +18,11 @@ export default function FAQ() {
     acc[faq.category].push(faq);
     return acc;
   }, {});
-
+useEffect(() => {
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center">
       {/* Header Image */}
@@ -31,9 +35,9 @@ export default function FAQ() {
       </div>
 
       {/* Title */}
-      <h1 className="text-2xl md:text-4xl font-extrabold mb-4 text-primary text-center">
+      <h2 className="text-2xl md:text-4xl font-extrabold mb-4 text-primary text-center">
         Answers to your frequently asked questions
-      </h1>
+      </h2>
 
       {/* FAQ Sections */}
       <div className="w-full max-w-2xl">
@@ -55,6 +59,7 @@ export default function FAQ() {
                   className={`text-gray-700 transition-transform ${
                     openIndex === faq.id ? "rotate-90" : ""
                   }`}
+                  onClick={() => toggleAnswer(faq.id)}
                 />
 
                 {/* Question and Answer */}
@@ -62,7 +67,7 @@ export default function FAQ() {
                   {/* Question */}
                   <h4
                     className={`text-xl font-semibold cursor-pointer ${
-                      openIndex === faq.id ? "font-bold" : ""
+                      openIndex === faq.id ? "font-extrabold" : ""
                     }`}
                     onClick={() => toggleAnswer(faq.id)}
                   >
@@ -80,6 +85,7 @@ export default function FAQ() {
                   className={`text-gray-700 transition-transform ${
                     openIndex === faq.id ? "rotate-45" : ""
                   }`}
+                  onClick={() => toggleAnswer(faq.id)}
                 />
               </div>
             ))}

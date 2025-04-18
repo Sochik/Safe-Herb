@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "../components/Slider";
 import { asideData, benefits, reviews } from "../data/asideData";
 import { Link } from "react-router-dom";
@@ -8,7 +8,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+
 export default function Home() {
+  useEffect(() => {
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
   return (
     <div className="md:min-h-screen bg-white">
       {/* Hero Section */}

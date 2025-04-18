@@ -4,15 +4,15 @@ import "aos/dist/aos.css";
 import { logo } from "../assets/images";
 import { FaTimes } from "react-icons/fa";
 import { FaBarsStaggered, FaRegUser } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Import useLocation
 import { IoSearch } from "react-icons/io5";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("/Home");
   const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search bar visibility
   const [searchQuery, setSearchQuery] = useState(""); // State for search input
+  const location = useLocation(); // Get the current route
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -30,11 +30,6 @@ export default function Navbar() {
     setSearchQuery(e.target.value);
   };
 
-  const handleLinkClick = (link) => {
-    setActiveLink(link); // Update the active link
-    setIsMenuOpen(false); // Close the menu on small screens
-  };
-
   return (
     <div className="w-full bg-inherit" data-aos="fade-down">
       <nav className="container flex items-center justify-between px-5 md:px-10 bg-secondary">
@@ -42,7 +37,6 @@ export default function Navbar() {
         <Link
           to="/Home"
           className="flex items-center"
-          onClick={() => handleLinkClick("/Home")}
           data-aos="fade-left"
         >
           <img
@@ -71,20 +65,21 @@ export default function Navbar() {
           <div className="flex flex-col items-start gap-2 w-full md:justify-center md:flex-row md:item-center md:gap-7">
             {[
               { name: "Home", to: "/Home" },
-              {name:"Shop", to: "/Shop"},
+              { name: "Shop", to: "/Shop" },
               { name: "About", to: "/About" },
               { name: "Services", to: "/Services" },
               { name: "Contact Us", to: "/Contact" },
+              { name: "FAQ", to: "/FAQ" },
             ].map((link) => (
               <li
                 key={link.to}
                 className={`cursor-pointer px-5 py-2 md:px-0 transition-all duration-300 ${
-                  activeLink === link.to
+                  location.pathname === link.to
                     ? "text-dark font-bold"
                     : "hover:text-dark transform hover:scale-105"
                 }`}
               >
-                <Link to={link.to} onClick={() => handleLinkClick(link.to)}>
+                <Link to={link.to}>
                   {link.name}
                 </Link>
               </li>

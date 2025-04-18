@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
+import Terms from "./pages/Terms";
 
 
 
@@ -45,6 +46,10 @@ const PageRoutes = createBrowserRouter([
       {
         path: "/FAQ",
         element: <FAQ />,
+      },
+      {
+        path: "/Terms",
+        element: <Terms />,
       },
     ],
   },

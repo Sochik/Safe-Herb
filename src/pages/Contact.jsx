@@ -13,31 +13,27 @@ export default function Contact() {
     };
   }, []);
   return (
-    <main>
-      <section
-        className="container relative flex flex-col mx-auto lg:mx-0"
-        style={{
-          backgroundImage: `url(${formBackground})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="flex flex-col gap-6 items-center mx-auto pt-14 p-7 md:gap-6 m-20">
-          <div className="flex flex-col lg:pt-6 items-center gap-1 lg:gap-3">
-            <h2 className="text-primary font-extrabold text-2xl md:text-5xl font-calligraffitti">
-              Contact Us!
-            </h2>
-          </div>
+    
+      <section className="container relative flex flex-col mx-auto lg:mx-0 bg-light">
+        <div className="w-full h-[60vh] mx-auto">
+          <img
+            className="object-cover w-full h-full"
+            src={formBackground}
+            alt="Contact Us"
+          />
         </div>
+        <h2 className="text-2xl md:text-4xl font-extrabold mb-4 text-primary text-center">
+          Contact Us!
+        </h2>
         <div>
           <aside className="flex flex-col-reverse lg:flex-row w-full items-top rounded-lg lg:rounded-none lg:h-auto gap-5 lg:gap-0">
-            <div className="w-full rounded-lg lg:rounded-none pb-5 px-2 lg:px-0"></div>
-            <div className="rounded-lg lg:rounded-none p-3 shad lg:w-[100%] items-center justify-center font-bubblegum">
+            {/* Form Section */}
+            <div className="rounded-md p-3 bg-backdrop shad lg:w-fit items-center mx-auto justify-center font-bubblegum">
               <h5 className="font-semibold text-center text-secondary text-lg md:text-2xl">
-                Enter your information here to send a direct message to Safe
-                Herb.
+                Enter your information here to send Us <br></br> a direct
+                message.
               </h5>
-              <form className=" flex flex-col w-full lg:w-[65%] gap-6 px-10 pt-10 pb-7">
+              <form className=" flex flex-col w-full gap-6 px-10 pt-10 pb-7">
                 <input
                   type="text"
                   required
@@ -67,11 +63,11 @@ export default function Contact() {
               </form>
             </div>
           </aside>
-          <div className="flex flex-col items-center py-5 font-bubblegum gap-10">
-            <h3 className=" font-extrabold text-2xl md:text-3xl text-tertiary">
+          <div className="flex flex-col items-center py-5 font-poppins gap-10">
+            <h3 className=" font-bold px-5 text-2xl md:text-3xl text-tertiary">
               Contact us through our social media handles
             </h3>
-            <div className="grid grid-cols-2 gap-3 md:flex md:flex-row item-center">
+            <div className=" gap-3 flex flex-row item-center font-bubblegum">
               <a
                 href="https://www.instagram.com/adam_levine0nline?igsh=MXkwNDNoM3YyZmVqOQ=="
                 target="_blank"
@@ -108,20 +104,18 @@ export default function Contact() {
                 <FaChalkboardTeacher />A Pet Trainer
               </a> */}
             </div>
-            <div className="flex flex-col gap-5 pb-7">
-              <h5 className="text-secondary text-lg md:text-2xl font-bold">
-                If you need any help or have any queries
-              </h5>
+            <div className="flex flex-col gap-1 pb-7 text-secondary text-lg md:text-2xl font-bold">
+              <h5>If you need any help or have any queries</h5>
               <a
                 href="mailto:psychedeliestore@gmail.com"
-                className="text-highlight font-semibold  md:text-xl mx-auto rounded-md py-3 md:p-5 bg-white hover:shadow-md"
+                className="text-highlight w-fit mx-auto rounded-md md:p-5 hover:text-tertiary"
               >
-                Send an Email <span>psychedeliestore@gmail.com</span>
+                Send an Email
               </a>
             </div>
           </div>
         </div>
       </section>
-    </main>
+    
   );
 }

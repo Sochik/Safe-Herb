@@ -1,9 +1,9 @@
 const faqData = [
   {
     id: 1,
-    question: "What is the return policy?",
+    question: "I love shroom but I want other psychedelics",
     answer:
-      "You can return any unopened product within 30 days for a full refund. ",
+      "We have a wide range of psychedelics available for you to choose from. These products includes LSD, DMT, Ketamine, MDMA and more. Please check our Shop for more details.",
     category: "General",
   },
   {
@@ -42,16 +42,15 @@ const faqData = [
   },
   {
     id: 7,
-    question: "How do I store the products?",
-    answer:
-      "Store in a cool, dry place away from direct sunlight. Keep them in an airtight container.",
+    question: "Can your products help with addiction?",
+    answer: "Yes, many users report that our products have helped them overcome addiction and dependency issues. Proper microdosing can help with anxiety, depression, and PTSD and help you get of SSRIs.",
     category: "General",
   },
   {
     id: 8,
     question: "What is the recommended dosage?",
     answer:
-      "Start with a low dose and gradually increase as needed. We recommend starting with 1-2 grams.",
+      "The recommended depends on what you intent to achieve. For microdose (0.05g to 0.25g), therapuetic dose(0.25g to 1.5g) recreational dose(2.0g to 3.5g) mega dose (5.0g +). Start with a low dose and gradually increase as needed. We recommend higher doses should only be used by experienced users.",
     category: "Dosage",
   },
   {
@@ -65,7 +64,7 @@ const faqData = [
     id: 10,
     question: "Are there any side effects?",
     answer:
-      "Some users may experience nausea or anxiety in the early stages of using the products. Start with a low dose to assess tolerance.",
+      "Some users may experience nausea or anxiety in the early stages of using the products, however these effects are temporary and will subside overtime. We advice you start with a low dose to assess tolerance.",
     category: "General",
   },
   {

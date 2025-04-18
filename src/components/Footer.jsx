@@ -26,12 +26,11 @@ export default function Footer() {
         <ul className="flex flex-col gap-4 text-center text-gray-400 mb-4">
           {[
             { name: "Home", path: "/Home" },
-            { name: "Shop", path: "/shop" },
-            { name: "About Us", path: "/about" },
-            { name: "Terms of Service", path: "/terms" },
-            { name: "Privacy Policy", path: "/privacy" },
-            { name: "Contact Us", path: "/contact" },
-            { name: "FAQ", path: "/faq" },
+            { name: "Shop", path: "/Shop" },
+            { name: "About Us", path: "/About" },
+            { name: "Terms & Conditions", path: "/terms" },
+            { name: "Contact Us", path: "/Contact" },
+            { name: "FAQ", path: "/FAQ" },
           ].map((link) => (
             <li key={link.path}>
               <Link
