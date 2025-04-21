@@ -587,7 +587,7 @@ export default function Terms() {
       {/* Content Section */}
       <div className="flex flex-col lg:flex-row w-full mx-auto">
         {/* Navigation Links */}
-        <nav className="lg:w-1/4 ps-4 lg:ps-8 sticky lg:top-0 top-4 h-auto z-20 w-fit bg-light">
+        <nav className="lg:w-1/4 ps-4 lg:ps-8 sticky top-4 lg:top-20 h-auto z-20 bg-light">
           <button
             className="lg:hidden text-white bg-highlight px-4 py-2 rounded mb-4"
             onClick={() => setNavOpen(!navOpen)}

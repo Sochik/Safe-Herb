@@ -25,7 +25,7 @@ export default function Footer() {
       <div className="container mx-auto flex flex-col items-center justify-center">
         <ul className="flex flex-col gap-4 text-center text-gray-400 mb-4">
           {[
-            { name: "Home", path: "/Home" },
+            { name: "Home", path: "/" },
             { name: "Shop", path: "/Shop" },
             { name: "About Us", path: "/About" },
             { name: "Terms & Conditions", path: "/terms" },

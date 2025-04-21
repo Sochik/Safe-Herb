@@ -31,14 +31,13 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-full bg-inherit" data-aos="fade-down">
-      <nav className="container flex items-center justify-between px-5 md:px-10 bg-secondary">
+    <div
+      className="w-full bg-inherit fixed z-20 top-0 left-0"
+      data-aos="fade-down"
+    >
+      <nav className="container flex items-center  justify-between px-5 md:px-10 bg-secondary ">
         {/* Logo Section */}
-        <Link
-          to="/Home"
-          className="flex items-center"
-          data-aos="fade-left"
-        >
+        <Link to="/" className="flex items-center" data-aos="fade-left">
           <img
             src={logo}
             alt="Safe Herb"
@@ -60,11 +59,11 @@ export default function Navbar() {
         <ul
           className={`${
             isMenuOpen ? "block" : "hidden"
-          } transition-transform z-50 duration-500 ease-in-out absolute top-16 left-0 w-full text-light bg-secondary bg-opacity-70 md:static md:bg-inherit md:flex md:flex-row md:items-center md:space-x-6 md:justify-between`}
+          } transition-transform z-50 duration-500 ease-in-out absolute top-16 left-0 w-full text-light bg-secondary bg-opacity-95 md:static md:bg-inherit md:flex md:flex-row md:items-center md:space-x-6 md:justify-between`}
         >
-          <div className="flex flex-col items-start gap-2 w-full md:justify-center md:flex-row md:item-center md:gap-7">
+          <div className="flex flex-col items-start gap-1 w-full md:justify-center md:flex-row md:item-center md:gap-7">
             {[
-              { name: "Home", to: "/Home" },
+              { name: "Home", to: "/" },
               { name: "Shop", to: "/Shop" },
               { name: "About", to: "/About" },
               { name: "Services", to: "/Services" },
@@ -79,9 +78,7 @@ export default function Navbar() {
                     : "hover:text-dark transform hover:scale-105"
                 }`}
               >
-                <Link to={link.to}>
-                  {link.name}
-                </Link>
+                <Link to={link.to}>{link.name}</Link>
               </li>
             ))}
           </div>
@@ -97,7 +94,7 @@ export default function Navbar() {
             </div>
             {/* Search Bar */}
             {isSearchOpen && (
-              <div className="absolute right-20 flex items-center rounded-md shadow-md z-40">
+              <div className="absolute md:right-20 -top-8 mx-2 my-2 flex items-center rounded-md shadow-md z-40">
                 <input
                   type="text"
                   className="w-48 p-1 text-sm rounded-md placeholder:text-primary focus:outline-none focus:ring-2 focus:ring-highlight focus:rounded-md bg-highlight"

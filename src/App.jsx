@@ -32,7 +32,7 @@ const PageRoutes = createBrowserRouter([
     element: <PageLayout />,
     children: [
       {
-        path: "/Home",
+        path: "/",
         element: <Home />,
       },
       {
