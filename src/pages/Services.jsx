@@ -41,6 +41,16 @@ const servicesData = [
     • Articles, infographics, and community Q&As
     • Optional integration sessions with experienced professionals`,
   },
+  {
+    title: "Natural & Synthetic Antidepressant Options",
+    description: `We provide thoughtfully selected alternatives for managing anxiety, depression, and emotional imbalance—both natural and synthetic—tailored to individual needs:
+    Natural Options:
+    • Adaptogens like Ashwagandha and Rhodiola
+    • Mood-supportive nootropics (e.g., Lion’s Mane, 5-HTP)
+    Synthetic Options:
+    • Legal SSRIs with psychedelic integration support
+    • MDMA-assisted therapy preparation materials`,
+  },
 ];
 
 export default function Services() {
@@ -82,7 +92,7 @@ export default function Services() {
       </div>
 
       {/* Need More Info Section */}
-      <div className="container mx-auto mt-12 bg-inherit p-6 rounded-lg shadow-md text-center">
+      <div className="container mx-auto mt-12 bg-inherit p-6 rounded-lg text-center">
         <h2 className="text-2xl font-bold text-primary mb-4">Need More Info?</h2>
         <p className="text-lg text-dark mb-4">
           Our team is always here to help! For more details about any of our
