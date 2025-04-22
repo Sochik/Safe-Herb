@@ -9,6 +9,8 @@ import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import Terms from "./pages/Terms";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 
 
@@ -50,6 +52,14 @@ const PageRoutes = createBrowserRouter([
       {
         path: "/Terms",
         element: <Terms />,
+      },
+      {
+        path: "/Register",
+        element: <Register />,
+      },
+      {
+        path: "/Login",
+        element: <Login />,
       },
     ],
   },

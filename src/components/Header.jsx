@@ -77,6 +77,7 @@ export default function Navbar() {
                     ? "text-dark font-bold"
                     : "hover:text-dark transform hover:scale-105"
                 }`}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <Link to={link.to}>{link.name}</Link>
               </li>
@@ -105,9 +106,10 @@ export default function Navbar() {
               </div>
             )}
             <Link
-              to="/account"
+              to="/register"
               className="h-8 w-8 text-primary hover:text-dark cursor-pointer flex justify-center items-center"
               aria-label="Account"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <FaRegUser />
             </Link>

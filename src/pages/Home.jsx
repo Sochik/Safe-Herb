@@ -7,6 +7,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { AboutShort } from "./About";
 
 
 export default function Home() {
@@ -132,6 +133,9 @@ export default function Home() {
           </div>
         </aside>
       </section>
+
+      
+        <AboutShort />
     </div>
   );
 }

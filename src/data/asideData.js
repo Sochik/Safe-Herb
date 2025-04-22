@@ -101,6 +101,43 @@ const reviews = [
     purchase: "Purchased Herb Chocolate Bars",
   },
 ];
-
+const offer = [
+  {
+    id: 1,
+    title: "Psychedelic Purchases",
+    description:
+      "Ethically sourced products delivered discreetly and securely.",
+  },
+  {
+    id: 2,
+    title: "Microdosing Options",
+    description:
+      "Pre-portioned, beginner-friendly kits to boost creativity, focus, and emotional balance.",
+  },
+  {
+    id: 3,
+    title: "Grow Kits",
+    description:
+      "For those ready to cultivate their own psilocybin experience, we offer user-friendly grow kits with everything you need to get started.",
+  },
+  {
+    id: 4,
+    title: "Step-by-Step Guidebook",
+    description:
+      "Every order includes an easy-to-follow, expert-written guide to help you get familiar with our products, recommended uses, and safe practices.",
+  },
+  {
+    id: 5,
+    title: "Psychedelic Therapy Guidance",
+    description:
+      "Access to integration tools and professionals who understand the journey We’re here to support you every step of the way.",
+  },
+  {
+    id: 6,
+    title: "Educational Content",
+    description:
+      "nfographics, articles, and resources on set and setting, the Default Mode Network, creativity, safety, and more.",
+  },
+];
 // Export arrays
-export { asideData, benefits, reviews  };
+export { asideData, benefits, reviews, offer };

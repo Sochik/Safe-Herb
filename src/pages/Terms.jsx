@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { formBackground } from "../assets/images";
 import { FaArrowRight, FaTimes } from "react-icons/fa";
 import { FaBars } from "react-icons/fa6";
 
 // Define the universal array outside the component
-const termsSections = [
+export const termsSections = [
   {
     name: "Introduction",
     href: "#Introduction",
@@ -559,12 +559,23 @@ const termsSections = [
 export default function Terms() {
   const [activeLink, setActiveLink] = useState(""); // State to track the active link
   const [navOpen, setNavOpen] = useState(false); // State to track the navigation menu
-
+useEffect(() => {
+  return () => {
+    window.scrollTo(0, 0);
+  };
+}, []);
   const handleLinkClick = (href) => {
     setActiveLink(href); // Set the clicked link as active
-    const targetElement = document.querySelector(href); // Scroll to the target section
+    const targetElement = document.querySelector(href); // Select the target section
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
+      const offset = 0; // Adjust this value if needed
+      const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth", // Smooth scrolling
+      });
     }
   };
 
@@ -587,9 +598,9 @@ export default function Terms() {
       {/* Content Section */}
       <div className="flex flex-col lg:flex-row w-full mx-auto">
         {/* Navigation Links */}
-        <nav className="lg:w-1/4 ps-4 lg:ps-8 sticky top-4 lg:top-20 h-auto z-20 bg-light">
+        <nav className="lg:w-1/4 ps-4 lg:ps-8 sticky top-16 lg:h-fit w-fit z-10 bg-light rounded-lg lg:shadow-lg lg:p-6">
           <button
-            className="lg:hidden text-white bg-highlight px-4 py-2 rounded mb-4"
+            className="lg:hidden text-white bg-highlight px-4 py-2 rounded"
             onClick={() => setNavOpen(!navOpen)}
           >
             {navOpen ? <FaTimes /> : <FaBars />}
@@ -613,6 +624,7 @@ export default function Terms() {
                   onClick={(e) => {
                     e.preventDefault(); // Prevent default anchor behavior
                     handleLinkClick(section.href);
+                    setNavOpen(!navOpen);
                   }}
                   className="items-center justify-end gap-2 flex flex-row-reverse"
                 >

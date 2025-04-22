@@ -26,7 +26,7 @@ useEffect(() => {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center">
       {/* Header Image */}
-      <div className="w-full h-[60vh] mx-auto">
+      <div className="w-full h-[70vh] mx-auto">
         <img
           className="object-cover w-full h-full"
           src={faqmushroom}
