@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { about } from '../assets/images';
 import { offer } from '../data/asideData';
 
 export default function About() {
+    useEffect(() => {
+        return () => {
+          window.scrollTo(0, 0);
+        };
+      }, []);
     return (
       <section className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
         {/* Header Image */}
@@ -17,9 +22,9 @@ export default function About() {
           />
         </div>
         <h1 className="text-3xl font-bold text-center text-primary">
-            About Us
-            </h1>
-            
+          About Us
+        </h1>
+
         <div className="w-full flex flex-col items-center my-5 px-3 py-5 text-center gap-3">
           <div className="container px-2 ">
             <p className="text-lg text-dark mb-8">
@@ -62,6 +67,36 @@ export default function About() {
                 </div>
               ))}
             </div>
+          </div>
+          <div className="container px-2 ">
+            <p className="text-lg text-dark mb-8">
+              We operate with the highest regard for privacy and discretion. All
+              purchases are encrypted and shipped in plain, secure packaging.
+              Our {" "}
+              <span>
+                <Link
+                  to="/Terms#PrivacyPolicy"
+                  className="text-highlight font-bold hover:underline"
+                >
+                  Privacy Policy
+                </Link>
+              </span>{" "}
+              and{" "}
+              <span>
+                <Link
+                  to="/Terms"
+                  className="text-highlight font-bold hover:underline"
+                >
+                  Terms and Conditions
+                </Link>
+              </span>{" "}
+              clearly outline our commitment to your confidentiality and safety.
+            </p>
+            <p className="text-lg text-dark ">
+              This is more than a store—it’s a movement. We’re helping rewrite
+              the narrative around psychedelics, empowering individuals to heal,
+              evolve, and thrive.
+            </p>
           </div>
         </div>
       </section>
