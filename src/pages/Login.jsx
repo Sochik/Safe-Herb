@@ -44,14 +44,14 @@ export default function Login() {
           />
         </div>
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center mb-4">
             <input
               type="checkbox"
               id="rememberMe"
               name="rememberMe"
               className="w-4 h-4 text-highlight border-gray-300 rounded focus:ring-highlight"
             />
-            <label htmlFor="rememberMe" className="ml-2 text-dark">
+            <label htmlFor="rememberMe" className=" ml-2 text-dark">
               Remember Me
             </label>
           </div>
@@ -62,12 +62,14 @@ export default function Login() {
             Forgot Password?
           </Link>
         </div>
-        <button
+        <Link
+          to={"/user"}
+          // onClick={handleLogin} // Uncomment this when a login function is ready, change Link to button
           type="submit"
           className="w-full bg-highlight text-white font-bold py-2 px-4 rounded-lg hover:bg-highlight-dark transition duration-300"
         >
           Login
-        </button>
+        </Link>
       </form>
       <p className="text-center text-dark mt-4">
         Don't have an account?{" "}

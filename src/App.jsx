@@ -11,6 +11,8 @@ import Contact from "./pages/Contact";
 import Terms from "./pages/Terms";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import User from "./pages/User";
+import Services from "./pages/Services";
 
 
 
@@ -46,6 +48,10 @@ const PageRoutes = createBrowserRouter([
         element: <Contact />,
       },
       {
+        path: "/Services",
+        element: <Services />,
+      },
+      {
         path: "/FAQ",
         element: <FAQ />,
       },
@@ -60,6 +66,10 @@ const PageRoutes = createBrowserRouter([
       {
         path: "/Login",
         element: <Login />,
+      },
+      {
+        path: "/User",
+        element: <User />,
       },
     ],
   },

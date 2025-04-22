@@ -65,7 +65,7 @@ export default function Slider() {
             Select from a vast range of alternative remedies
           </h2>
           <Link
-            to="/Shop"
+            to="/Services"
             className="mt-3 px-3 md:px-6 py-2 bg-tertiary bg-opacity-80 md:bg-opacity-100 text-primary font-bold rounded-md hover:bg-highlight transition-all text-center items-center justify-center mx-auto block w-fit"
           >
             Learn More

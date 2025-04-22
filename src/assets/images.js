@@ -8,7 +8,9 @@ import register from "./register1.jpg";
 import login from "./login1.jpg";
 import shop from "./shop.jpg";
 import about from "./about.jpg";
+import user from "./user.jpg";
+import services from "./services.jpg";
 export {
-    logo, HeroSlider1, HeroSlider2 
+    logo, HeroSlider1, HeroSlider2, user, services 
     ,HeroSlider3, formBackground, register, shop, about, login ,faqmushroom
 };
