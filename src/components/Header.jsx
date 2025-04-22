@@ -95,14 +95,20 @@ export default function Navbar() {
             </div>
             {/* Search Bar */}
             {isSearchOpen && (
-              <div className="absolute md:right-20 -top-8 mx-2 my-2 flex items-center rounded-md shadow-md z-40">
+              <div className="absolute md:right-20 -top-8 md:-top-2 mx-2 my-2 flex items-center rounded-md  z-40">
                 <input
                   type="text"
-                  className="w-48 p-1 text-sm rounded-md placeholder:text-primary focus:outline-none focus:ring-2 focus:ring-highlight focus:rounded-md bg-highlight"
+                  className="w-48 p-1 text-sm rounded-md placeholder:text-primary focus:outline-none shadow-md focus:ring-2 focus:ring-highlight focus:rounded-md bg-highlight"
                   placeholder="Search for products..."
                   value={searchQuery}
                   onChange={handleSearchChange}
                 />
+                <button
+                  onClick={() => console.log(`Searching for: ${searchQuery}`)} // Replace with actual search logic
+                  className="ml-2 px-3 py-1 text-sm text-white shadow-md bg-primary rounded-md hover:bg-highlight transition-all"
+                >
+                  Search
+                </button>
               </div>
             )}
             <Link
