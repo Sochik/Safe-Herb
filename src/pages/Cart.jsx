@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, changeInCart } from "../features/reducers/cartslice";
+import { removeFromCart, changeInCart } from "../features/reducers/cartSlice";
 import { IoWalletOutline } from "react-icons/io5";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
