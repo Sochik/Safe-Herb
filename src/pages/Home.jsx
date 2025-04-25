@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import { AboutShort } from "./About";
 import { allItems } from "../data/shopData";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../features/reducers/cartslice";
+import { addToCart } from "../features/reducers/cartSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
