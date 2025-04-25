@@ -8,14 +8,31 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { AboutShort } from "./About";
-
+import { allItems } from "../data/shopData";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/reducers/cartslice";
 
 export default function Home() {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     return () => {
       window.scrollTo(0, 0);
     };
   }, []);
+
+  // Function to get random products
+  const getRandomProducts = (items, count) => {
+    const shuffled = [...items].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
+  const randomProducts = getRandomProducts(allItems, 4); // Select 4 random products
+
+  const handleOrder = (product) => {
+    dispatch(addToCart(product)); // Dispatch the addToCart action
+  };
+
   return (
     <div className="md:min-h-screen bg-white">
       {/* Hero Section */}
@@ -92,6 +109,54 @@ export default function Home() {
         </aside>
       </section>
 
+      <section className="container mx-auto h-fit md:h-screen flex items-center z-10">
+        <aside className="w-full h-full bg-backdrop flex flex-col md:flex-row items-start justify-center text-start">
+          {/* Title Section */}
+          <div className="w-full md:w-1/4 md:h-full items-start justify-center text-start p-2 md:p-8">
+            <h3 className="font-poppins px-4 text-xl md:text-2xl font-extrabold text-primary">
+              Shop From Us!
+            </h3>
+          </div>
+
+          {/* Mini-Shop Grid */}
+          <div className="w-full md:w-3/4 grid grid-cols-2 gap-2 sm:gap-4 p-4">
+            {randomProducts.map((product) => (
+              <div
+                key={product.id}
+                className="bg-white shadow-md h-fit w-3/4 rounded-lg p-4 flex flex-col items-center"
+              >
+                <img
+                  src={product.image1 || "https://via.placeholder.com/150"}
+                  alt={product.title}
+                  className="w-full h-40 object-cover rounded-lg mb-4"
+                />
+                <h4
+                  className="text-lg font-bold text-primary mb-2 line-clamp-1"
+                  title={product.title} // Tooltip for full title
+                >
+                  {product.title}
+                </h4>
+                <p className="text-sm text-dark mb-2">
+                  ${product.start_price} - ${product.end_price}
+                </p>
+                <Link
+                  to={`/product/${product.id}`}
+                  className="text-dark px-1 mb-2 hover:text-highlight border-b-2 border-dark hover:border-highlight transition"
+                >
+                  Details
+                </Link>
+                <button
+                  onClick={() => dispatch(addToCart(product))}
+                  className="bg-highlight text-white px-4 py-2 rounded-lg hover:bg-highlight-dark transition"
+                >
+                  Order
+                </button>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </section>
+
       <section className="container mx-auto h-[80vh] lg:h-[83.333vh] flex items-stretch md:items-center">
         <aside className="w-full h-full bg-light flex flex-col md:flex-row items-start justify-center text-start p-8">
           {/* Title Section */}
@@ -134,8 +199,7 @@ export default function Home() {
         </aside>
       </section>
 
-      
-        <AboutShort />
+      <AboutShort />
     </div>
   );
 }

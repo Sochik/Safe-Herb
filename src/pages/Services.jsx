@@ -8,7 +8,7 @@ const servicesData = [
     • Psilocybin mushrooms & truffles
     • LSD tabs & microdose blotters
     • DMT cartridges & Ayahuasca preparations
-    • Ketamine lozenges (where legal)
+    • Ketamine
     All purchases are discreetly packaged and shipped with full respect for your privacy and local regulations.`,
   },
   {
@@ -43,7 +43,7 @@ const servicesData = [
   },
   {
     title: "Natural & Synthetic Antidepressant Options",
-    description: `We provide thoughtfully selected alternatives for managing anxiety, depression, and emotional imbalance—both natural and synthetic—tailored to individual needs:
+    description: `We provide thoughtfully selected alternatives for managing anxiety, depression, and emotional imbalance tailored to individual needs:
     Natural Options:
     • Adaptogens like Ashwagandha and Rhodiola
     • Mood-supportive nootropics (e.g., Lion’s Mane, 5-HTP)

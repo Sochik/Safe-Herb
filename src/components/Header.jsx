@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { logo } from "../assets/images";
 import { FaTimes } from "react-icons/fa";
 import { FaBarsStaggered, FaRegUser } from "react-icons/fa6";
-import { Link, useLocation } from "react-router-dom"; // Import useLocation
+import { Link, useLocation } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search bar visibility
-  const [searchQuery, setSearchQuery] = useState(""); // State for search input
-  const location = useLocation(); // Get the current route
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const location = useLocation();
+  const cart = useSelector((state) => state.cart); // Get cart state from Redux
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -35,7 +37,7 @@ export default function Navbar() {
       className="w-full bg-inherit fixed z-20 top-0 left-0"
       data-aos="fade-down"
     >
-      <nav className="container flex items-center  justify-between px-5 md:px-10 bg-secondary ">
+      <nav className="container flex items-center justify-between px-5 md:px-10 bg-secondary">
         {/* Logo Section */}
         <Link to="/" className="flex items-center" data-aos="fade-left">
           <img
@@ -61,7 +63,7 @@ export default function Navbar() {
             isMenuOpen ? "block" : "hidden"
           } transition-transform z-50 duration-500 ease-in-out absolute top-16 left-0 w-full text-light bg-secondary bg-opacity-95 md:static md:bg-inherit md:flex md:flex-row md:items-center md:space-x-6 md:justify-between`}
         >
-          <div className="flex flex-col items-start gap-1 w-full md:justify-center md:flex-row md:item-center md:gap-7">
+          <div className="flex flex-col items-start gap-1 w-full md:justify-center md:flex-row md:items-center md:gap-7">
             {[
               { name: "Home", to: "/" },
               { name: "Shop", to: "/Shop" },
@@ -77,12 +79,13 @@ export default function Navbar() {
                     ? "text-dark font-bold"
                     : "hover:text-dark transform hover:scale-105"
                 }`}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={() => setIsMenuOpen(false)}
               >
                 <Link to={link.to}>{link.name}</Link>
               </li>
             ))}
           </div>
+
           {/* Icons Section */}
           <div className="flex w-max gap-4 items-center mt-4 md:mt-0 relative">
             {/* Search Icon */}
@@ -95,7 +98,7 @@ export default function Navbar() {
             </div>
             {/* Search Bar */}
             {isSearchOpen && (
-              <div className="absolute md:right-20 -top-8 md:-top-2 mx-2 my-2 flex items-center rounded-md  z-40">
+              <div className="absolute md:right-20 -top-8 md:-top-2 mx-2 my-2 flex items-center rounded-md z-40">
                 <input
                   type="text"
                   className="w-48 p-1 text-sm rounded-md placeholder:text-primary focus:outline-none shadow-md focus:ring-2 focus:ring-highlight focus:rounded-md bg-highlight"
@@ -104,7 +107,7 @@ export default function Navbar() {
                   onChange={handleSearchChange}
                 />
                 <button
-                  onClick={() => console.log(`Searching for: ${searchQuery}`)} // Replace with actual search logic
+                  onClick={() => console.log(`Searching for: ${searchQuery}`)}
                   className="ml-2 px-3 py-1 text-sm text-white shadow-md bg-primary rounded-md hover:bg-highlight transition-all"
                 >
                   Search
@@ -115,7 +118,7 @@ export default function Navbar() {
               to="/register"
               className="h-8 w-8 text-primary hover:text-dark cursor-pointer flex justify-center items-center"
               aria-label="Account"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => setIsMenuOpen(false)}
             >
               <FaRegUser />
             </Link>
@@ -125,8 +128,8 @@ export default function Navbar() {
               aria-label="Cart"
             >
               <HiOutlineShoppingCart />
-              <div className="absolute h-4 w-4 grid place-items-center text-white bg-secondary rounded-full -top-0.5 -right-0.5 text-xs">
-                0 {/* Replace with cart.length */}
+              <div className="absolute h-4 w-4 grid place-items-center text-white bg-highlight rounded-full -top-0.5 -right-0.5 text-xs">
+                {cart.length} {/* Dynamically display cart count */}
               </div>
             </Link>
           </div>

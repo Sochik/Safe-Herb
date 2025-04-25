@@ -1,5 +1,7 @@
-import { useState } from "react";
-import "./index.css"; // Ensure Tailwind CSS is imported
+import React from "react";
+import { Provider } from "react-redux";
+import store from "./features/store";
+import "./index.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -13,72 +15,48 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import User from "./pages/User";
 import Services from "./pages/Services";
+import Shop from "./pages/Shop";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
 
-
-
-export default function App() {
-  const [count, setCount] = useState("All");
-
-  const PageLayout = () => {
-
-    return (
-      <>
-        <Header />
-        <Outlet />
-        <Footer />
-      </>
-    );
-  }
+const PageLayout = () => {
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
+};
 
 const PageRoutes = createBrowserRouter([
   {
     path: "/",
     element: <PageLayout />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/About",
-        element: <About />,
-      },
-      {
-        path: "/Contact",
-        element: <Contact />,
-      },
-      {
-        path: "/Services",
-        element: <Services />,
-      },
-      {
-        path: "/FAQ",
-        element: <FAQ />,
-      },
-      {
-        path: "/Terms",
-        element: <Terms />,
-      },
-      {
-        path: "/Register",
-        element: <Register />,
-      },
-      {
-        path: "/Login",
-        element: <Login />,
-      },
-      {
-        path: "/User",
-        element: <User />,
-      },
+      { path: "/", element: <Home /> },
+      { path: "/About", element: <About /> },
+      { path: "/Contact", element: <Contact /> },
+      { path: "/Services", element: <Services /> },
+      { path: "/Shop", element: <Shop /> },
+      { path: "/FAQ", element: <FAQ /> },
+      { path: "/Terms", element: <Terms /> },
+      { path: "/Register", element: <Register /> },
+      { path: "/Login", element: <Login /> },
+      { path: "/User", element: <User /> },
+      { path: "/product/:id", element: <Product /> },
+      { path: "/Cart", element: <Cart /> },
     ],
   },
 ]);
 
-return (
-    <main className="bg-highlight min-h-screen">
-      <Toaster />
-      <RouterProvider router={PageRoutes}></RouterProvider>
-    </main>
+export default function App() {
+  return (
+    <Provider store={store}>
+      <main className="bg-highlight min-h-screen">
+        <Toaster />
+        <RouterProvider router={PageRoutes}></RouterProvider>
+      </main>
+    </Provider>
   );
 }
