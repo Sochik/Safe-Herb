@@ -1,10 +1,9 @@
 const asideData = [
   {
     id: 1,
-    title: "What are psilocybin Mushrooms?",
+    title: "NO CARD DETAILS NEEDED!",  
     description:
-      "Psilocybin mushrooms, also known as magic mushrooms, are a type of fungi that contain the psychoactive compound psilocybin. These mushrooms have been used for centuries in various cultures for their hallucinogenic properties and are known for inducing altered states of consciousness, visual and auditory hallucinations.",
-  },
+      "We prioritize your privacy and security. Our payment process is designed to be simple and secure, ensuring that you can shop with confidence. Make Payments fast using crypto and other e-transfer platforms like Paypal, Cashapp, Venmo, ApplePay. ",},
   {
     id: 2,
     title: "Want to microdose?",

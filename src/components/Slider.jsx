@@ -36,7 +36,7 @@ export default function Slider() {
       id: 2,
       image: HeroSlider2,
       title: (
-        <div className="flex z-10">
+        <div className="flex z-10 bg-dark bg-opacity-50">
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-tertiary font-bold text-2xl md:text-4xl">
               Have you tried Mushroom Edibles?

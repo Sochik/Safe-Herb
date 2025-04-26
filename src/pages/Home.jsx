@@ -42,13 +42,13 @@ export default function Home() {
         </aside>
       </section>
 
-      {/* About Section */}
+      {/* Aside Section */}
       <section className="container mx-auto py-16 px-4 md:px-16 bg-backdrop">
         <div className="w-full flex flex-col gap-8 md:flex-row md:gap-12 items-center justify-center">
           {asideData.map((item, index) => (
             <div
               key={index}
-              className="w-full md:w-1/3 flex flex-col items-center text-center bg-white shadow-md rounded-lg p-6"
+              className="w-full md:w-1/3 md:h-[40vh] flex flex-col items-center text-center bg-white shadow-md rounded-lg p-6"
             >
               <h3 className="text-xl font-bold font-chewy text-primary">
                 {item.title}
@@ -68,14 +68,14 @@ export default function Home() {
         </Link>
 
         <div className="w-full flex flex-col gap-4 mt-8 items-start justify-center">
-          <h3 className="text-xl font-bold font-chewy text-primary text-center mt-8">
+          <h3 className="text-xl font-bold font-chewy text-primary text-center mt-8 mb-4">
             what you stand to gain with us...
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="flex flex-col items-start text-start bg-backdrop rounded-lg p-6"
+                className="flex flex-col items-start text-start bg-backdrop rounded-lg px-6"
               >
                 <h3 className="text-xl font-bold font-chewy text-highlight">
                   {benefit.title}
@@ -119,11 +119,11 @@ export default function Home() {
           </div>
 
           {/* Mini-Shop Grid */}
-          <div className="w-full md:w-3/4 grid grid-cols-2 gap-2 sm:gap-4 p-4">
+          <div className="w-full md:w-3/4 grid grid-cols-2 gap-4 md:gap-6 p-4">
             {randomProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-white shadow-md h-fit w-3/4 rounded-lg p-4 flex flex-col items-center"
+                className="bg-white shadow-md h-fit w-full rounded-lg p-4 flex flex-col items-center"
               >
                 <img
                   src={product.image1 || "https://via.placeholder.com/150"}
@@ -132,11 +132,11 @@ export default function Home() {
                 />
                 <h4
                   className="text-lg font-bold text-primary mb-2 line-clamp-1"
-                  title={product.title} // Tooltip for full title
+                  title={product.title}
                 >
                   {product.title}
                 </h4>
-                <p className="text-sm text-dark mb-2">
+                <p className="text-sm font-bold text-dark">
                   ${product.start_price} - ${product.end_price}
                 </p>
                 <Link

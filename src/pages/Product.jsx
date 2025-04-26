@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux"; // Import useDispatch
 import { allItems } from "../data/shopData";
 import { shop } from "../assets/images";
+import { addToCart } from "../features/reducers/cartSlice";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Import icons
 
 export default function Product() {
-  useEffect(() => {
-      return () => {
-        window.scrollTo(0, 0);
-      };
-    }, []);
+  const dispatch = useDispatch(); // Access dispatch
   const { id } = useParams(); // Get the product ID from the URL
   const product = allItems.find((item) => item.id === id); // Find the product by ID
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // State to track the current image index
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!product) {
     return <p className="text-center text-red-500">Product not found!</p>;
@@ -71,11 +73,14 @@ export default function Product() {
               </button>
             </>
           )}
-          <img
+          <div className="h-[40vh] md:h-[60vh] overflow-hidden rounded-lg shadow-md">
+            <img
             src={productImages[currentImageIndex]}
             alt={`${product.title} - Image ${currentImageIndex + 1}`}
-            className="w-full h-auto rounded-lg shadow-md"
+            className="w-full h-auto object-cover rounded-lg shadow-md"
           />
+          </div>
+          
         </div>
 
         {/* Product Details */}
@@ -85,8 +90,8 @@ export default function Product() {
             Price: ${product.start_price} - ${product.end_price}
           </p>
           <button
-            onClick={() => dispatch({ type: "ADD_TO_CART", payload: product })}
-            className="bg-highlight text-white px-4 py-2 rounded-lg hover:bg-highlight-dark transition"
+            onClick={() => dispatch(addToCart(product))} // Dispatch addToCart action
+            className="bg-highlight w-fit text-white px-4 py-2 rounded-lg hover:bg-highlight-dark transition"
           >
             Add to Cart
           </button>

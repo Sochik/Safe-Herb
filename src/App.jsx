@@ -18,6 +18,7 @@ import Services from "./pages/Services";
 import Shop from "./pages/Shop";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import SearchResults from "./pages/SearchResults";
 
 const PageLayout = () => {
   return (
@@ -46,6 +47,7 @@ const PageRoutes = createBrowserRouter([
       { path: "/User", element: <User /> },
       { path: "/product/:id", element: <Product /> },
       { path: "/Cart", element: <Cart /> },
+      { path: "/search", element: <SearchResults /> },
     ],
   },
 ]);

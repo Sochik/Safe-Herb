@@ -89,7 +89,7 @@ export default function Cart() {
               <IoWalletOutline /> Proceed to Checkout
             </button>
             <p className="opacity-60 text-xs text-center pt-1">
-              100% Secure Payment. No card details stored.
+              100% Secure Payment. No card details Needed.
             </p>
           </div>
         </div>
