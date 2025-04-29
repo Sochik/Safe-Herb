@@ -19,6 +19,8 @@ import Shop from "./pages/Shop";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import SearchResults from "./pages/SearchResults";
+import FloatingPrompt from "./components/FloatingPrompt"; // Import the FloatingPrompt component
+import ErrorPage from "./pages/ErrorPage";
 
 const PageLayout = () => {
   return (
@@ -26,6 +28,7 @@ const PageLayout = () => {
       <Header />
       <Outlet />
       <Footer />
+      <FloatingPrompt /> {/* Add the floating prompt here */}
     </>
   );
 };
@@ -47,6 +50,7 @@ const PageRoutes = createBrowserRouter([
       { path: "/User", element: <User /> },
       { path: "/product/:id", element: <Product /> },
       { path: "/Cart", element: <Cart /> },
+      { path: "*", element: <ErrorPage /> },
       { path: "/search", element: <SearchResults /> },
     ],
   },

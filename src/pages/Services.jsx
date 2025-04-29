@@ -101,32 +101,32 @@ export default function Services() {
           <span className="mx-1">
             <a
               href="https://www.facebook.com/safeherb"
-              className="text-highlight hover:text-tertiary"
+              className="text-highlight font-bold hover:text-tertiary"
             >
               Facebook
-            </a>
+            </a>,
           </span>
           <span className="mx-1">
             <a
               href="https://www.instagram.com/adam_levine0nline?igsh=MXkwNDNoM3YyZmVqOQ=="
-              className="text-highlight hover:text-tertiary"
+              className="text-highlight font-bold hover:text-tertiary"
             >
               Instagram
-            </a>
+            </a>,
           </span>
           <span className="mx-1">
             <a
               href="https://www.tiktok.com/@safe.herbs?_t=ZM-8vaLVruk2cQ&_r=1"
-              className="text-highlight hover:text-tertiary"
+              className="text-highlight font-bold hover:text-tertiary"
             >
               TikTok
-            </a>
+            </a>,
           </span>{" "}
           or send us an{" "}
           <span className="mx-1">
             <a
               href="mailto:psychedeliestore@gmail.com"
-              className="text-highlight hover:text-tertiary"
+              className="text-highlight font-bold hover:text-tertiary"
             >
               Email
             </a>

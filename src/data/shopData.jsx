@@ -234,99 +234,191 @@ const kits = [
 ];
 
 const naturalSupplement = [
-    {
-        id: "301",
-        title: "1 OZ Dried Shroom",
-        description:
-            "1 OZ of dried mushrooms, perfect for microdosing or recreational use.",
-        start_price: 300,
-        end_price: 600,
-        image1: naturalSupplementImages[0],
-        image2: naturalSupplementImages[8],
-    },
-    {
-        id: "302",
-        title: "8pcs Mushroom Chocolate Bars",
-        description:
-            "8 pieces of mushroom-infused chocolate bars, each containing 200mg of psilocybin.Customizable to your liking.",
-        start_price: 150,
-        end_price: 500,
-        image1: naturalSupplementImages[1],
-    },
-    {
-        id: "303",
-        title: "40 Caps Mushroom Microdosing",
-        description:
-            "40 capsules of mushroom microdosing, perfect for enhancing creativity and focus.",
-        start_price: 200,
-        end_price: 700,
-        image1: naturalSupplementImages[2],
-        image2: naturalSupplementImages[3]
-    },
-    {
-        id: "304",
-        title: "Cannabis Toast Crunch",
-        description:
-            "A delicious cannabis-infused cereal treat, perfect for a sweet snack.",
-        start_price: 100,
-        end_price: 400,
-        image1: naturalSupplementImages[4],
-    },
-    {
-        id: "305",
-        title: "Dank Cannabis Gummy",
-        description:
-            "A gummy infused with cannabis, providing a sweet and relaxing experience.",
-        start_price: 80,
-        end_price: 300,
-        image1: naturalSupplementImages[5],
-    },
-    {
-        id: "306",
-        title: "Dried Mushroom",
-        description:
-            "Dried mushrooms, perfect for microdosing or recreational use.",
-        start_price: 250,
-        end_price: 500,
-        image1: naturalSupplementImages[6],
-    },
-    {
-        id: "307",
-        title: "Golden Teachers Capsules",
-        description:
-            "Capsules carefully measured and filled with Golden Teacher mushrooms, perfect for microdosing. Each capsule contains 0.6mg of psilocybin. Customizable to your liking on request.",
-        start_price: 230,
-        end_price: 900,
-        image1: naturalSupplementImages[7],
-    },
-    {
-        id: "309",
-        title: "Marshmallow Chocolate Bar",
-        description:
-            "A delicious marshmallow chocolate bar infused with psilocybin.",
-        start_price: 150,
-        end_price: 350,
-        image1: naturalSupplementImages[9]
-    },
-    {
-        id: "310",
-        title: "Microdosing Chocolate Bars",
-        description:
-            "Chocolate bars infused with psilocybin, perfect for microdosing. Each bar contains 200mg of psilocybin.",
-        start_price: 120,
-        end_price: 400,
-        image1: naturalSupplementImages[10],
-        image2: naturalSupplementImages[11],
-    },
-    {
-        id: "311",
-        title: "Penis Envy Microdosing Capsule",
-        description:
-            "Capsules carefully measured and filled with penis envy, perfect for microdosing. Each capsule contains 0.6mg of psilocybin. Customizable to your liking on request.",
-        start_price: 230,
-        end_price: 900,
-        image1: naturalSupplementImages[12]
-    }
+  {
+    id: "301",
+    title: "Dried GT Mushroom",
+    description:
+      "Get dried Golden Teachers mushrooms as little as half OZ or as much as 2LP, perfect for microdosing or recreational use.",
+    start_price: 300,
+    end_price: 600,
+    image1: naturalSupplementImages[0],
+    image2: naturalSupplementImages[8],
+    image3: naturalSupplementImages[6],
+    image4: naturalSupplementImages[24],
+  },
+  {
+    id: "302",
+    title: "8pcs Mushroom Chocolate Bars",
+    description:
+      "8 pieces of mushroom-infused chocolate bars, each containing 200mg of psilocybin.Customizable to your liking.",
+    start_price: 150,
+    end_price: 500,
+    image1: naturalSupplementImages[1],
+  },
+  {
+    id: "303",
+    title: "40 Caps Mushroom Microdosing",
+    description:
+      "40 capsules of mushroom microdosing, perfect for enhancing creativity and focus.",
+    start_price: 200,
+    end_price: 700,
+    image1: naturalSupplementImages[2],
+    image2: naturalSupplementImages[3],
+  },
+  {
+    id: "304",
+    title: "Cannabis Toast Crunch",
+    description:
+      "A delicious cannabis-infused cereal treat, perfect for a sweet snack.",
+    start_price: 100,
+    end_price: 400,
+    image1: naturalSupplementImages[4],
+  },
+  {
+    id: "305",
+    title: "Dank Cannabis Gummy",
+    description:
+      "A gummy infused with cannabis, providing a sweet and relaxing experience.",
+    start_price: 80,
+    end_price: 300,
+    image1: naturalSupplementImages[5],
+  },
+  {
+    id: "307",
+    title: "Golden Teachers Capsules",
+    description:
+      "Capsules carefully measured and filled with Golden Teacher mushrooms, perfect for microdosing. Each capsule contains 0.6mg of psilocybin. Customizable to your liking on request.",
+    start_price: 230,
+    end_price: 900,
+    image1: naturalSupplementImages[7],
+  },
+  {
+    id: "309",
+    title: "Marshmallow Chocolate Bar",
+    description:
+      "A delicious marshmallow chocolate bar infused with psilocybin.",
+    start_price: 150,
+    end_price: 350,
+    image1: naturalSupplementImages[9],
+  },
+  {
+    id: "310",
+    title: "Microdosing Chocolate Bars",
+    description:
+      "Chocolate bars infused with psilocybin, perfect for microdosing. Each bar contains 200mg of psilocybin.",
+    start_price: 120,
+    end_price: 400,
+    image1: naturalSupplementImages[10],
+    image2: naturalSupplementImages[11],
+  },
+  {
+    id: "311",
+    title: "Penis Envy Microdosing Capsule",
+    description:
+      "Capsules carefully measured and filled with penis envy, perfect for microdosing. Each capsule contains 0.6mg of psilocybin. Customizable to your liking on request.",
+    start_price: 230,
+    end_price: 900,
+    image1: naturalSupplementImages[12],
+  },
+  {
+    id: "361",
+    title: "Dried PE Mushroom",
+    description:
+      "Get dried Penis Envy mushrooms as little as half OZ or as much as 2LP, perfect for microdosing or recreational use.",
+    start_price: 300,
+    end_price: 600,
+    image1: naturalSupplementImages[26],
+    image2: naturalSupplementImages[27],
+    image3: naturalSupplementImages[28],
+  },
+  {
+    id: "312",
+    title: "Mushies Chocolate Bar",
+    description:
+      "A quality branded psilocybin chocolate bar. Made to suit the user desires, can be used for therapeutic and recreational purposes",
+    start_price: 200,
+    end_price: 600,
+    image1: naturalSupplementImages[13],
+  },
+  {
+    id: "344",
+    title: "Myco Bar",
+    description:
+      "A quality branded psilocybin chocolate bar. Made to suit the user desires, can be used for therapeutic and recreational purposes",
+    start_price: 200,
+    end_price: 600,
+    image1: naturalSupplementImages[16],
+  },
+  {
+    id: "384",
+    title: "PolkaDot Chocolate Bars",
+    description:
+      "A quality branded psilocybin chocolate bar. Made to suit the user desires, can be used for therapeutic and recreational purposes",
+    start_price: 300,
+    end_price: 900,
+    image1: naturalSupplementImages[19],
+  },
+  {
+    id: "324",
+    title: "Mush Love Chocolate Bar",
+    description:
+      "A quality branded psilocybin chocolate bar. Made to suit the user desires, can be used for therapeutic and recreational purposes",
+    start_price: 230,
+    end_price: 700,
+    image1: naturalSupplementImages[15],
+    image2: naturalSupplementImages[14],
+  },
+  {
+    id: "358",
+    title: "One Up Chocolate Bar",
+    description:
+      "A quality branded psilocybin chocolate bar. Made to suit the user desires, can be used for therapeutic and recreational purposes",
+    start_price: 250,
+    end_price: 800,
+    image1: naturalSupplementImages[18],
+    image2: naturalSupplementImages[17],
+    image3: naturalSupplementImages[25],
+    image4: naturalSupplementImages[32],
+  },
+  {
+    id: "391",
+    title: "Psilocybin Gummies",
+    description:
+      "Psilocybin-infused gummies, perfect for a sweet and psychedelic experience.",
+    start_price: 150,
+    end_price: 600,
+    image1: naturalSupplementImages[20],
+  },
+  {
+    id: "338",
+    title: "Stoney Patch Gummies",
+    description:
+      "THC-infused gummies, perfect for a sweet and relaxing experience.",
+    start_price: 100,
+    end_price: 500,
+    image1: naturalSupplementImages[21],
+  },
+  {
+    id: "372",
+    title: "THC Edibles",
+    description:
+      "THC-infused edibles, perfect for a sweet and relaxing experience.",
+    start_price: 120,
+    end_price: 600,
+    image1: naturalSupplementImages[22],
+    image2: naturalSupplementImages[29],
+    image3: naturalSupplementImages[30],
+    image4: naturalSupplementImages[31],
+  },
+  {
+    id: "377",
+    title: "Trolli Sour Brite Crawlers",
+    description:
+      "Sour gummy worms infused with THC, perfect for a sweet and relaxing experience.",
+    start_price: 120,
+    end_price: 600,
+    image1: naturalSupplementImages[23],
+  },
 ];
 
 

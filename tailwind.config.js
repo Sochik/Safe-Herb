@@ -15,10 +15,10 @@ module.exports = {
         light: "#f9f6fb",
       },
       fontFamily: {
-        bubblegum: ['"Bubblegum Sans"', "cursive"],
+        bubblegum: ['"Quicksand"', "Pacifico", "cursive"],
         poppins: ['"Poppins"', "sans-serif"],
         shadow: ['"Shadows Into Light"', "cursive"],
-        chewy: ['"Chewy"', "cursive"],
+        chewy: ['"Pacifico"', "Poppins", "cursive"],
         Caveat: ['"Caveat"', "cursive"],
       },
       keyframes: {

@@ -13,7 +13,7 @@ export default function Slider() {
       id: 1,
       image: HeroSlider1,
       title: (
-        <div className="text-center z-10">
+        <div className=" z-10 bg-dark p-4 bg-opacity-20 rounded-3xl text-center">
           <h2 className="text-secondary font-extrabold text-xl md:text-5xl">
             Mushroom Supplements
           </h2>
@@ -36,7 +36,7 @@ export default function Slider() {
       id: 2,
       image: HeroSlider2,
       title: (
-        <div className="flex z-10 bg-dark bg-opacity-50">
+        <div className="z-10 mx-4 md:w-1/2 bg-dark p-4 rounded-3xl w-fit bg-opacity-50">
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-tertiary font-bold text-2xl md:text-4xl">
               Have you tried Mushroom Edibles?
@@ -52,7 +52,6 @@ export default function Slider() {
               Order Now
             </Link>
           </div>
-          <div className="md:flex-1 text-center "></div>
         </div>
       ),
     },
@@ -60,8 +59,8 @@ export default function Slider() {
       id: 3,
       image: HeroSlider3,
       title: (
-        <div className="text-center z-10">
-          <h2 className="text-gray-800 font-bold text-2xl md:text-5xl bg-slate-400 bg-opacity-50 p-4 rounded-md">
+        <div className="z-10 mx-auto md:w-3/4 bg-dark p-4 rounded-3xl w-fit bg-opacity-30">
+          <h2 className="text-light font-bold text-2xl md:text-5xl p-4 rounded-md">
             Select from a vast range of alternative remedies
           </h2>
           <Link
@@ -78,7 +77,7 @@ export default function Slider() {
   return (
     <div className="slider">
       <Swiper
-        className="w-full h-[50vh] md:h-screen"
+        className="w-full h-[60vh] md:h-screen"
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}

@@ -17,12 +17,20 @@ import mushLoveMicrodoseChocolateBar2 from "./mushLove-microdose-choocolatebar.j
 import mycobarPsilocybinChocolateBar from "./mycobar-psilocybin-chocolatebar.jpg";
 import oneUpChocolateBars1 from "./oneUp-chocolate-bars.jpg";
 import oneUpChocolateBars2 from "./oneUp-chocolate-bars2.jpg";
+import oneUpChocolateBars3 from "./oneUp-chocolate-bars3.jpg";
+import oneUpChocolateBars4 from "./oneUp-chocolate-bars1.jpg";
 import polkadotChocolateBar from "./polkadot-chocolatebar.jpg";
 import psilocybinFlavouredGummies from "./psilocybin-flavoured-gummies.jpg";
 import stoneyPatchCannabisGummy from "./stoney-patch-cannabis-gummy.jpg";
 import thcEdibles from "./THC-edibles.jpg";
 import trolliSourBriteCrawlers from "./trolli-osur-brite-crawlers.jpg";
 import oneLbDriedMushroom from "./1lb-dried-mushroom.jpg";
+import penisEnvyDried1 from "./penis-envy-dried.jpg";
+import penisEnvyDried2 from "./penis-envy-dried1.jpg";
+import penisEnvyDried3 from "./penis-envy-dried3.jpg";
+import thcEdibles1 from "./thc-edibles1.jpg";
+import thcEdibles2 from "./thc-edibles2.jpg";
+import thcEdibles3 from "./thc-edibles3.jpg";
 
 // Exporting an array of images
 const naturalSupplementImages = [
@@ -51,6 +59,14 @@ const naturalSupplementImages = [
   thcEdibles,
   trolliSourBriteCrawlers,
   oneLbDriedMushroom,
+  oneUpChocolateBars3,
+  penisEnvyDried1,
+  penisEnvyDried2,
+  penisEnvyDried3,
+  thcEdibles1,
+  thcEdibles2,
+  thcEdibles3,
+  oneUpChocolateBars4,
 ];
 
 export default naturalSupplementImages;
