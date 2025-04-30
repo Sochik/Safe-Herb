@@ -48,9 +48,9 @@ export default function Home() {
           {asideData.map((item, index) => (
             <div
               key={index}
-              className="w-full md:w-1/3 md:h-[40vh] flex flex-col items-center text-center bg-white shadow-md rounded-lg p-6"
+              className="w-full md:w-1/3 md:h-[50vh] flex flex-col items-center text-center bg-white shadow-md rounded-lg p-6"
             >
-              <h3 className="text-xl font-bold font-chewy text-primary">
+              <h3 className="text-xl font-bold font-poppins text-primary">
                 {item.title}
               </h3>
               <p className="text-lg font-light mt-4 text-gray-700">
@@ -68,7 +68,7 @@ export default function Home() {
         </Link>
 
         <div className="w-full flex flex-col gap-4 mt-8 items-start justify-center">
-          <h3 className="text-xl font-bold font-chewy text-primary text-center mt-8 mb-4">
+          <h3 className="text-xl font-bold font-poppins text-primary text-center mt-8 mb-4">
             what you stand to gain with us...
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
@@ -77,7 +77,7 @@ export default function Home() {
                 key={index}
                 className="flex flex-col items-start text-start bg-backdrop rounded-lg px-6"
               >
-                <h3 className="text-xl font-bold font-chewy text-highlight">
+                <h3 className="text-xl font-bold font-poppins text-highlight">
                   {benefit.title}
                 </h3>
                 <p className="text-lg font-light mt-4 text-gray-700">
@@ -92,7 +92,7 @@ export default function Home() {
       <section className="container mx-auto h-fit md:h-screen flex items-center">
         <aside className="w-full h-full bg-gradient-to-r from-secondary to-highlight">
           <div className="w-full h-full flex flex-col items-center justify-center text-center p-8">
-            <h3 className="text-2xl md:text-5xl font-bold font-chewy text-primary">
+            <h3 className="text-2xl md:text-5xl font-bold font-poppins text-primary">
               Try out our Mushroom Microdosing Capsules and Edibles.
             </h3>
             <p className="text-xl md:text-3xl font-light mt-4 md:mt-20 text-backdrop">

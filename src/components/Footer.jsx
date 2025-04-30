@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="bg-dark text-highlight pt-20 pb-10">
       {/* Contact Section */}
       <div className="container mx-auto flex flex-col items-center justify-center">
-        <h3 className="text-2xl font-bold font-chewy text-center text-white mb-4">
+        <h3 className="text-2xl font-bold font-poppins text-center text-white mb-4">
           Contact
         </h3>
         <a

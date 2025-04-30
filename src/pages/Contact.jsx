@@ -28,7 +28,7 @@ export default function Contact() {
         <div>
           <aside className="flex flex-col-reverse lg:flex-row w-full items-top rounded-lg lg:rounded-none lg:h-auto gap-5 lg:gap-0">
             {/* Form Section */}
-            <div className="rounded-md p-3 bg-backdrop shad lg:w-fit items-center mx-auto justify-center font-bubblegum">
+            <div className="rounded-md p-3 bg-backdrop shad lg:w-fit items-center mx-auto justify-center font-poppins">
               <h5 className="font-semibold text-center text-secondary text-lg md:text-2xl">
                 Enter your information here to send Us <br></br> a direct
                 message.
@@ -67,7 +67,7 @@ export default function Contact() {
             <h3 className=" font-bold px-5 text-2xl md:text-3xl text-tertiary">
               Contact us through our social media handles
             </h3>
-            <div className=" gap-3 flex flex-row item-center font-bubblegum">
+            <div className=" gap-3 flex flex-row item-center font-poppins">
               <a
                 href="https://www.instagram.com/adam_levine0nline?igsh=MXkwNDNoM3YyZmVqOQ=="
                 target="_blank"

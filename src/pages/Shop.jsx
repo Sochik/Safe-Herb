@@ -1,35 +1,46 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux"; // Import useDispatch
+import { useDispatch } from "react-redux";
 import { allItems, pills, kits, naturalSupplement } from "../data/shopData";
 import { shop } from "../assets/images";
 import { addToCart } from "../features/reducers/cartSlice";
 
 export default function Shop() {
-  const dispatch = useDispatch(); // Access dispatch
+  const dispatch = useDispatch();
+
+  // Function to shuffle an array
+  const shuffleArray = (array) => {
+    return array
+      .map((item) => ({ ...item, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ sort, ...item }) => item);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [filteredItems, setFilteredItems] = useState(allItems);
+  const [filteredItems, setFilteredItems] = useState(shuffleArray(allItems)); // Shuffle items initially
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    let itemsToFilter;
     switch (category) {
       case "Natural Supplements":
-        setFilteredItems(naturalSupplement);
+        itemsToFilter = naturalSupplement;
         break;
       case "Pills":
-        setFilteredItems(pills);
+        itemsToFilter = pills;
         break;
       case "Grow Kit":
-        setFilteredItems(kits);
+        itemsToFilter = kits;
         break;
       default:
-        setFilteredItems(allItems);
+        itemsToFilter = allItems;
     }
+    setFilteredItems(shuffleArray(itemsToFilter)); // Shuffle items when category changes
   };
 
   return (
@@ -53,7 +64,7 @@ export default function Shop() {
             (category) => (
               <button
                 key={category}
-                onClick={() => handleCategoryChange(category)}
+                onClick={() => handleCategoryChange(category)} // Handle category change and shuffle items
                 className={`px-4 py-2 rounded-lg font-bold transition-all ${
                   selectedCategory === category
                     ? "bg-highlight text-white"

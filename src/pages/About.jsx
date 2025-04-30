@@ -49,7 +49,7 @@ export default function About() {
           </div>
 
           <div className="w-full flex flex-col gap-4 items-start justify-center">
-            <h3 className="text-xl font-bold font-chewy text-primary text-center mt-8">
+            <h3 className="text-xl font-bold font-poppins text-primary text-center mt-8">
               What We Offer:
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -58,7 +58,7 @@ export default function About() {
                   key={index}
                   className="flex flex-col items-start text-start bg-backdrop rounded-lg p-6"
                 >
-                  <h3 className="text-xl font-bold font-chewy text-highlight">
+                  <h3 className="text-xl font-bold font-poppins text-highlight">
                     {offer.title}
                   </h3>
                   <p className="text-lg font-light mt-4 text-gray-700">

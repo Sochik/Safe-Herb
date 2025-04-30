@@ -15,10 +15,8 @@ module.exports = {
         light: "#f9f6fb",
       },
       fontFamily: {
-        bubblegum: ['"Quicksand"', "Pacifico", "cursive"],
         poppins: ['"Poppins"', "sans-serif"],
         shadow: ['"Shadows Into Light"', "cursive"],
-        chewy: ['"Pacifico"', "Poppins", "cursive"],
         Caveat: ['"Caveat"', "cursive"],
       },
       keyframes: {

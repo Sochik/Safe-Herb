@@ -46,6 +46,18 @@ const pills = [
     image2: pillsImages[5],
   },
   {
+    id: "143",
+    title: "LSD Vial",
+    description:
+      "LSD Vial is a liquid form of LSD, a powerful hallucinogenic drug. It is known for its intense and long-lasting effects.",
+    start_price: 120,
+    end_price: 850,
+    image1: pillsImages[42],
+    image2: pillsImages[43],
+    image3: pillsImages[44],
+    image4: pillsImages[45],
+  },
+  {
     id: "104",
     title: "DMT Cartridge",
     description:
@@ -75,6 +87,17 @@ const pills = [
     image1: pillsImages[10],
   },
   {
+    id: "144",
+    title: "MDMA Crystal",
+    description:
+      "MDMA Crystal is a pure form of MDMA, a popular recreational drug known for its euphoric and empathogenic effects. It is often used in social settings.",
+    start_price: 140,
+    end_price: 560,
+    image1: pillsImages[46],
+    image2: pillsImages[47],
+    image3: pillsImages[48],
+  },
+  {
     id: "107",
     title: "Mango Kiwi Flavored Vape",
     description:
@@ -101,9 +124,9 @@ const pills = [
       "Ketamine Crystal is a powerful anesthetic and dissociative drug known for its unique effects.",
     start_price: 180,
     end_price: 800,
-    image1: pillsImages[38],
-    image2: pillsImages[39],
-    image3: pillsImages[40],
+    image1: pillsImages[39],
+    image2: pillsImages[40],
+    image3: pillsImages[41],
   },
   {
     id: "110",
@@ -187,6 +210,7 @@ const pills = [
     end_price: 800,
     image1: pillsImages[36],
     image2: pillsImages[37],
+    image3: pillsImages[38],
   },
 ];
 

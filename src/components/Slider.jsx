@@ -17,7 +17,7 @@ export default function Slider() {
           <h2 className="text-secondary font-extrabold text-xl md:text-5xl">
             Mushroom Supplements
           </h2>
-          <p className="text-highlight font-bold font-bubblegum text-lg md:text-4xl">
+          <p className="text-highlight font-bold font-poppins text-lg md:text-4xl">
             that can{" "}
             <span className="block animate-blink font-poppins text-2xl md:text-6xl font-extrabold">
               CHANGE YOUR LIFE!

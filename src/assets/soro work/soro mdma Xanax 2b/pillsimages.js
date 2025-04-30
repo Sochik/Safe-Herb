@@ -40,6 +40,13 @@ import fiveMeo3 from "./5-meo-DMT1.jpg";
 import ketaCrystal1 from "./ketamine-crystal1.jpg";
 import ketaCrystal2 from "./ketamine-crystal2.jpg";
 import ketaCrystal3 from "./ketamine-crystal3.jpg";
+import lsdVial1 from "./lsd-liquid.jpg";
+import lsdVial2 from "./lsd-liquid1.jpg";
+import lsdVial3 from "./lsd-liquid2.jpg";
+import lsdVial4 from "./lsd-liquid3.jpg";
+import mdmaCrystal1 from "./mdma-crystal3.jpg";
+import mdmaCrystal2 from "./mdma-crystal1.jpg";
+import mdmaCrystal3 from "./mdma-crystal2.jpg";
 
 // Exporting an array of images
 const pillsImages = [
@@ -85,6 +92,15 @@ const pillsImages = [
   ketaCrystal1,
   ketaCrystal2,
   ketaCrystal3,
-]
+  lsdVial1,
+  lsdVial2,
+  lsdVial3,
+  lsdVial4,
+  mdmaCrystal1,
+  mdmaCrystal2,
+  mdmaCrystal3,
+];
+
+console.log(pillsImages.length);
 
 export default pillsImages;

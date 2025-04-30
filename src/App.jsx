@@ -22,6 +22,7 @@ import SearchResults from "./pages/SearchResults";
 import FloatingPrompt from "./components/FloatingPrompt"; // Import the FloatingPrompt component
 import ErrorPage from "./pages/ErrorPage";
 import Checkout from "./pages/Checkout";
+import pillsImages from "./assets/soro work/soro mdma Xanax 2b/pillsimages";
 
 const PageLayout = () => {
   return (
@@ -35,6 +36,7 @@ const PageLayout = () => {
 };
 
 const PageRoutes = createBrowserRouter([
+  
   {
     path: "/",
     element: <PageLayout />,
@@ -60,7 +62,7 @@ const PageRoutes = createBrowserRouter([
 
 export default function App() {
   return (
-    <Provider store={store}>
+      <Provider store={store}>
       <main className="bg-highlight min-h-screen">
         <Toaster />
         <RouterProvider router={PageRoutes}></RouterProvider>
