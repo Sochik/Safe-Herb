@@ -54,6 +54,7 @@ const pills = [
     end_price: 560,
     image1: pillsImages[8],
     image2: pillsImages[7],
+    image3: pillsImages[20],
   },
   {
     id: "105",
@@ -70,40 +71,124 @@ const pills = [
     description:
       "Lion's Breath Vape is a premium vape product known for its smooth flavor and high-quality ingredients.",
     start_price: 120,
-        end_price: 600,
+    end_price: 600,
     image1: pillsImages[10],
   },
-    {
-        id: "107",
-        title: "Mango Kiwi Flavored Vape",
-        description:
-        "Mango Kiwi Flavored Vape is a delicious vape product that combines the tropical flavors of mango and kiwi.",
-        start_price: 130,
-        end_price: 620,
-        image1: pillsImages[11],
-    },
-    {
-        id: "109",
-        title: "Pen Vape",
-        description:
-        "Pen Vape is a portable vaping device that offers convenience and ease of use.",
-        start_price: 110,
-        end_price: 500,
-        image1: pillsImages[16],
-        image2: pillsImages[15],
-        image3: pillsImages[17],
-    },
-    {
-        id: "110",
-        title: "Xanax",
-        description:
-        "Xanax is a medication used to treat anxiety and panic disorders. It is also known for its calming effects.",
-        start_price: 140,
-        end_price: 800,
-        image1: pillsImages[18],
-        image2: pillsImages[19],
-    },
-]
+  {
+    id: "107",
+    title: "Mango Kiwi Flavored Vape",
+    description:
+      "Mango Kiwi Flavored Vape is a delicious vape product that combines the tropical flavors of mango and kiwi.",
+    start_price: 130,
+    end_price: 620,
+    image1: pillsImages[11],
+  },
+  {
+    id: "109",
+    title: "Pen Vape",
+    description:
+      "Pen Vape is a portable vaping device that offers convenience and ease of use.",
+    start_price: 110,
+    end_price: 500,
+    image1: pillsImages[16],
+    image2: pillsImages[15],
+    image3: pillsImages[17],
+  },
+  {
+    id: "133",
+    title: "Ketamine Crystal",
+    description:
+      "Ketamine Crystal is a powerful anesthetic and dissociative drug known for its unique effects.",
+    start_price: 180,
+    end_price: 800,
+    image1: pillsImages[38],
+    image2: pillsImages[39],
+    image3: pillsImages[40],
+  },
+  {
+    id: "110",
+    title: "Xanax",
+    description:
+      "Xanax is a medication used to treat anxiety and panic disorders. It is also known for its calming effects.",
+    start_price: 140,
+    end_price: 800,
+    image1: pillsImages[18],
+    image2: pillsImages[19],
+  },
+  {
+    id: "150",
+    title: "LSD Blotter",
+    description:
+      "LSD (Lysergic acid diethylamide) Blotter is a type of LSD blotter gel that is known for its potency and unique designs.",
+    start_price: 100,
+    end_price: 600,
+    image1: pillsImages[21],
+    image2: pillsImages[22],
+    image3: pillsImages[23],
+  },
+  {
+    id: "152",
+    title: "N,N-DMT",
+    description:
+      "N,N-DMT (N,N-Dimethyltryptamine) is a powerful psychedelic compound known for its intense and short-lived effects.",
+    start_price: 140,
+    end_price: 700,
+    image1: pillsImages[24],
+    image2: pillsImages[25],
+    image3: pillsImages[26],
+  },
+  {
+    id: "172",
+    title: "Diazepam (Valium)",
+    description:
+      "Diazepam (Valium) is a medication used to treat anxiety, muscle spasms, and seizures. It is also known for its calming effects.",
+    start_price: 120,
+    end_price: 750,
+    image1: pillsImages[27],
+  },
+  {
+    id: "177",
+    title: "Ketamine Liquid",
+    description:
+      "Ketamine Liquid (10ml) is a powerful anesthetic and dissociative drug known for its unique effects.",
+    start_price: 180,
+    end_price: 850,
+    image1: pillsImages[28],
+  },
+  {
+    id: "188",
+    title: "LSD Sheets",
+    description:
+      "LSD (Lysergic acid diethylamide) Sheets are paper-like type of LSD that is known for its potency and unique designs.",
+    start_price: 140,
+    end_price: 700,
+    image1: pillsImages[29],
+    image2: pillsImages[30],
+    image3: pillsImages[31],
+    image4: pillsImages[32],
+  },
+  {
+    id: "182",
+    title: "Crystal Methamphetamine",
+    description:
+      "Crystal Methamphetamine (Ice) is a powerful stimulant drug known for its intense and lasting effects.",
+    start_price: 120,
+    end_price: 600,
+    image1: pillsImages[33],
+    image2: pillsImages[34],
+    image3: pillsImages[35],
+  },
+  {
+    id: "180",
+    title: "5-MeO-DMT",
+    description:
+      "5-MeO-DMT (5-Methoxy-N,N-Dimethyltryptamine) is a powerful psychedelic compound known for its intense and short-lived effects.",
+    start_price: 160,
+    end_price: 800,
+    image1: pillsImages[36],
+    image2: pillsImages[37],
+  },
+];
 
 
 const kits = [
