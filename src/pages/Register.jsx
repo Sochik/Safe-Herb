@@ -1,189 +1,122 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { register } from "../assets/images";
+import axios from "axios";
 
 export default function Register() {
   const navigate = useNavigate();
-useEffect(() => {
-    return () => {
-      window.scrollTo(0, 0);
-    };
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    age: "",
+    phone: "",
+    address: "",
+    town: "",
+    city: "",
+    zipCode: "",
+    specificDetails: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      let response = await axios.post("https://safeherb-server.onrender.com/register", formData);
+      console.log("Registration successful:", response.data);
+      alert("Registration successful! Redirecting to login...");
+      navigate("/login");
+    } catch (err) {
+      console.error("Error during registration:", err.response?.data || err.message);
+      alert(err.response?.data?.error || "An error occurred during registration.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
+
   return (
-    
     <div className="container mx-auto px-4 py-8 bg-light rounded-lg shadow-lg">
-      {/* Header Image */}
       <div className="w-full h-[60vh] mx-auto">
         <img
           className="object-cover w-full h-full"
           src={register}
           alt="Register"
-          aos="fade-up"
+          data-aos="fade-up"
           data-aos-duration="1000"
         />
       </div>
-      <h1 className="text-3xl font-bold text-center text-primary mb-6">
-        Register
-      </h1>
+      <h1 className="text-3xl font-bold text-center text-primary mb-6">Register</h1>
       <form
         className="space-y-4 md:w-2/6 mx-auto bg-backdrop p-6 rounded-lg shadow-md"
-        onSubmit={(e) => {
-          e.preventDefault();
-          navigate("/login"); // Redirect to the login page after registration
-        }}
+        onSubmit={handleSubmit}
       >
-        <div className="flex flex-col">
-          <label
-            htmlFor="username"
-            className="text-lg font-semibold text-dark mb-2"
-          >
-            Username:
-          </label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            required
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-highlight"
-          />
-        </div>
-        <div className="flex flex-col">
-          <label
-            htmlFor="email"
-            className="text-lg font-semibold text-dark mb-2"
-          >
-            Email:
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-highlight"
-          />
-        </div>
-        <div className="flex flex-col">
-          <label
-            htmlFor="password"
-            className="text-lg font-semibold text-dark mb-2"
-          >
-            Password:
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            required
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-highlight"
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="age" className="text-lg font-semibold text-dark mb-2">
-            Age:
-          </label>
-          <input
-            type="number"
-            id="age"
-            name="age"
-            required
-            min="21"
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-highlight"
-          />
-        </div>
-        <div className="flex flex-col">
-          <label
-            htmlFor="phone"
-            className="text-lg font-semibold text-dark mb-2"
-          >
-            Phone Number:
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            required
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-highlight"
-          />
-        </div>
-        <div className="flex flex-col">
-          <label
-            htmlFor="address"
-            className="text-lg font-semibold text-dark mb-2"
-          >
-            Address:
-          </label>
-          <textarea
-            id="address"
-            name="address"
-            required
-            placeholder="Street Address"
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 resize-none focus:ring-highlight"
-          ></textarea>
-        </div>
-        <div className="flex flex-col">
-          <label
-            htmlFor="town"
-            className="text-lg font-semibold text-dark mb-2"
-          >
-            Town:
-          </label>
-          <input
-            type="text"
-            id="town"
-            name="town"
-            required
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-highlight"
-          />
-        </div>
-        <div className="flex flex-col">
-          <label
-            htmlFor="city"
-            className="text-lg font-semibold text-dark mb-2"
-          >
-            City:
-          </label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            required
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-highlight"
-          />
-        </div>
-        <div className="flex flex-col">
-          <label
-            htmlFor="zipCode"
-            className="text-lg font-semibold text-dark mb-2"
-          >
-            Zip Code:
-          </label>
-          <input
-            type="text"
-            id="zipCode"
-            name="zipCode"
-            required
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-highlight"
-          />
-        </div>
-        <div className="flex flex-col">
-          <label
-            htmlFor="specificDetails"
-            className="text-lg font-semibold text-dark mb-2"
-          >
-            Other Specific Address Details:
-          </label>
-          <textarea
-            id="specificDetails"
-            name="specificDetails"
-            placeholder="Apartment, suite, unit, building, floor, etc."
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none resize-none focus:ring-2 focus:ring-highlight"
-          ></textarea>
-        </div>
+        {[
+          { id: "name", label: "Username", type: "text" },
+          { id: "email", label: "Email", type: "email" },
+          { id: "password", label: "Password", type: "password", minLength: 6 },
+          { id: "age", label: "Age", type: "number", min: 21 },
+          { id: "phone", label: "Phone Number", type: "tel", pattern: "[0-9]{10,15}" },
+          { id: "address", label: "Address", type: "textarea", placeholder: "Street Address" },
+          { id: "town", label: "Town", type: "text" },
+          { id: "city", label: "City", type: "text" },
+          { id: "zipCode", label: "Zip Code", type: "text", pattern: "\\d{4,10}" },
+          {
+            id: "specificDetails",
+            label: "Other Specific Address Details",
+            type: "textarea",
+            placeholder: "Apartment, suite, unit, building, floor, etc.",
+            required: false,
+          },
+        ].map(({ id, label, type, ...props }) => (
+          <div className="flex flex-col" key={id}>
+            <label htmlFor={id} className="text-lg font-semibold text-dark mb-2">
+              {label}:
+            </label>
+            {type === "textarea" ? (
+              <textarea
+                id={id}
+                name={id}
+                className="border border-gray-300 rounded-lg px-4 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-highlight"
+                value={formData[id]}
+                onChange={handleChange}
+                {...props}
+              ></textarea>
+            ) : (
+              <input
+                id={id}
+                name={id}
+                type={type}
+                className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-highlight"
+                value={formData[id]}
+                onChange={handleChange}
+                required
+                {...props}
+              />
+            )}
+          </div>
+        ))}
         <button
           type="submit"
-          className="w-full bg-highlight text-white font-bold py-2 px-4 rounded-lg hover:bg-highlight-dark transition duration-300"
+          disabled={loading}
+          className={`w-full font-bold py-2 px-4 rounded-lg transition duration-300 ${
+            loading
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-highlight text-white hover:bg-highlight-dark"
+          }`}
         >
-          Register
+          {loading ? "Registering..." : "Register"}
         </button>
       </form>
       <p className="text-center text-dark mt-4">
@@ -194,29 +127,19 @@ useEffect(() => {
       </p>
       <div className="w-full flex flex-col items-center py-5 text-center">
         <p className="text-lg text-gray-700 mb-8 max-w-4xl">
-          Join the Safe Herb Community and Unlock access to premium
-          psychedelics, microdosing solutions, grow kits, and personalized
-          guides designed to support your exploration and transformation.
-          Whether you’re new or experienced, we provide a safe, discreet, and
-          informed space to begin your journey.
-          <br /> By signing up, you agree with our {" "}
-          <span>
-            <Link
-              to="/Terms"
-              className="text-highlight font-bold hover:underline"
-            >
-              Terms and Conditions
-            </Link>{" "}
-            and acknowledge our{" "}
-          </span>
-          <span>
-            <Link
-              to="/Terms#PrivacyPolicy"
-              className="text-highlight font-bold hover:underline"
-            >
-              Privacy Policy
-            </Link>
-          </span>
+          Join the Safe Herb Community and unlock access to premium psychedelics,
+          microdosing solutions, grow kits, and personalized guides designed to support
+          your exploration and transformation. Whether you’re new or experienced, we provide
+          a safe, discreet, and informed space to begin your journey.
+          <br />
+          By signing up, you agree with our{" "}
+          <Link to="/Terms" className="text-highlight font-bold hover:underline">
+            Terms and Conditions
+          </Link>{" "}
+          and acknowledge our{" "}
+          <Link to="/Terms#PrivacyPolicy" className="text-highlight font-bold hover:underline">
+            Privacy Policy
+          </Link>
           .
         </p>
       </div>

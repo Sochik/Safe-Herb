@@ -1,0 +1,35 @@
+{
+  "services": [
+    {
+      "type": "web",
+      "name": "safe-herb-server",
+      "env": "node",
+      "buildCommand": "npm install",
+      "startCommand": "node server/index.js",
+      "envVars": {
+        "MONGO_URI": {
+          "fromSecret": "mongo_uri"
+        },
+        "JWT_SECRET": {
+          "fromSecret": "jwt_secret"
+        }
+      },
+      "plan": "free",
+      "region": "oregon"
+    },
+    {
+      "type": "web",
+      "name": "safe-herb-client",
+      "env": "static",
+      "buildCommand": "npm install && npm run build",
+      "staticPublishPath": "build/",
+      "envVars": {
+        "REACT_APP_API_URL": {
+          "fromSecret": "api_url"
+        }
+      },
+      "plan": "free",
+      "region": "oregon"
+    }
+  ]
+}

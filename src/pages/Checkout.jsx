@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { clearCart } from "../features/reducers/cartSlice";
 
 const couponCodes = [
   "A1B2C3D4",
@@ -17,26 +19,35 @@ const couponCodes = [
 
 export default function Checkout() {
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user); // Retrieve user from Redux store
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [paymentMethod, setPaymentMethod] = useState("");
-  const [couponCode, setCouponCode] = useState(""); // State for coupon code
-  const [isCouponValid, setIsCouponValid] = useState(false); // State for coupon validation
-  const [discountAmount, setDiscountAmount] = useState(0); // State for additional discount
+  const [couponCode, setCouponCode] = useState("");
+  const [isCouponValid, setIsCouponValid] = useState(false);
+  const [discountAmount, setDiscountAmount] = useState(0);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showCartClearedMessage, setShowCartClearedMessage] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  const alertRef = useRef(null);
 
   const subtotal = cart.reduce(
     (total, item) => total + item.start_price * item.qty,
     0
   );
-  const baseDiscount = subtotal * 0.1; // 10% discount
+  const baseDiscount = subtotal * 0.1;
   const grandTotal = subtotal - baseDiscount - discountAmount;
 
   const handlePaymentSelection = (method) => {
     setPaymentMethod(method);
+    setShowAlert(false);
   };
 
   const handleCouponApply = () => {
     if (couponCodes.includes(couponCode.trim())) {
       setIsCouponValid(true);
-      setDiscountAmount(10); // Apply a $10 discount for valid coupon codes
+      setDiscountAmount(10);
     } else {
       setIsCouponValid(false);
       setDiscountAmount(0);
@@ -44,16 +55,159 @@ export default function Checkout() {
     }
   };
 
-  const handleCheckout = () => {
-    if (!paymentMethod) {
-      alert("Please select a payment method.");
+  const handleCheckout = async () => {
+    const token = user?.token || localStorage.getItem("token");
+    console.log("Token:", token); // Debugging // Check if token is retrieved correctly 
+
+    if (!token) {
+      setAlertMessage("You must be logged in to proceed to checkout.");
+      setShowAlert(true);
       return;
     }
-    console.log("Checkout successful with payment method:", paymentMethod);
+
+    if (!paymentMethod) {
+      setAlertMessage("Please select a payment method.");
+      setShowAlert(true);
+
+      // Automatically hide the alert after 3 seconds
+      setTimeout(() => setShowAlert(false), 3000);
+      return;
+    }
+
+    const checkoutPayload = {
+      cart,
+      paymentMethod,
+      couponCode: isCouponValid ? couponCode : null,
+      grandTotal,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://safeherb-server.onrender.com/api/checkout",
+        checkoutPayload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include token in header
+          },
+        }
+      );
+      console.log("Checkout successful:", response.data);
+
+      // Show success popup
+      setShowSuccessPopup(true);
+
+      // Delay for 3 seconds, then clear the cart and show "Cart Cleared" message
+      setTimeout(() => {
+        setShowSuccessPopup(false);
+        dispatch(clearCart());
+        setShowCartClearedMessage(true);
+
+        // Delay for another 2 seconds, then navigate to the shop page
+        setTimeout(() => {
+          setShowCartClearedMessage(false);
+          navigate("/shop");
+        }, 10000);
+      }, 6000);
+    } catch (error) {
+      console.error("Error during checkout:", error.response?.data || error.message);
+
+      // Handle specific error messages
+      if (error.response?.status === 403) {
+        setAlertMessage(
+          "You are not authorized to perform this action. Sign in or Register To Complete Checkout."
+        );
+        setShowAlert(true);
+
+        // Redirect to login page after showing the alert
+        setTimeout(() => {
+          setShowAlert(false);
+          navigate("/login");
+        }, 3000);
+      } else {
+        setAlertMessage(
+          error.response?.data?.error || "An error occurred during checkout."
+        );
+      }
+
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
+    }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (alertRef.current && !alertRef.current.contains(event.target)) {
+        setShowAlert(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <section className="container mx-auto py-8 px-4 md:px-16 bg-light rounded-lg shadow-lg">
+      {/* Alert Message */}
+      {showAlert && (
+        <div
+          ref={alertRef}
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        >
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center">
+            <div className="text-red-500 text-4xl mb-4">
+              <i className="fas fa-exclamation-circle"></i>
+            </div>
+            <h2 className="text-xl font-bold text-dark mb-2">Action Required</h2>
+            <p className="text-gray-600 mb-4">{alertMessage}</p>
+            <button
+              onClick={() => setShowAlert(false)}
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+            >
+              Dismiss
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Success Popup */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
+            <div className="text-green-500 text-6xl mb-4">
+              <i className="fas fa-check-circle"></i>
+            </div>
+            <h2 className="text-2xl font-bold text-primary mb-4">
+              Order Placed Successfully!
+            </h2>
+            <p className="text-lg text-gray-600 mb-6">
+              Thank you for your purchase! Your order has been placed successfully. You will receive an email confirmation shortly.
+            </p>
+            <button
+              onClick={() => setShowSuccessPopup(false)}
+              className="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Cart Cleared Message */}
+      {showCartClearedMessage && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+            <h2 className="text-2xl font-bold text-primary mb-2">
+              Cart Cleared!
+            </h2>
+            <p className="text-lg text-gray-600">
+              Your cart has been cleared. Redirecting to the shop...
+            </p>
+          </div>
+        </div>
+      )}
+
       <h1 className="text-3xl mt-10 font-bold text-center text-primary mb-6">
         Checkout
       </h1>

@@ -18,7 +18,13 @@ export default function Cart() {
       <main className="relative py-20 min-h-[70vh]">
         <section className="container mx-auto text-center">
           <h1 className="text-3xl font-bold text-primary mb-4">Your Cart</h1>
-          <p className="text-lg text-dark">Your cart is empty.</p>
+          <p className="text-lg text-dark mb-10">Your cart is empty.</p>
+        <Link
+          to="/Shop"
+          className="bg-secondary text-white font-bold py-3 px-4  rounded-lg hover:bg-highlight-dark transition duration-300"
+        >
+          Order Now
+        </Link>
         </section>
       </main>
     );
@@ -40,7 +46,7 @@ export default function Cart() {
             </div>
           </div>
           <div className="flex flex-col py-4 divide-y divide-slate-200">
-            {cart.map((item, index) => (
+            {cart.map((item) => (
               <aside key={item.id} className="p-2 flex items-center gap-2 justify-between relative">
                 <button
                   onClick={() => dispatch(removeFromCart(item.id))}

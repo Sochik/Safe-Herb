@@ -1,28 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { user } from "../assets/images";
+import { user as userImage } from "../assets/images";
+import axios from "axios";
 
 export default function User() {
-  // Mock user data (replace with actual data from your backend or state management)
-  const userInfo = {
-    username: "JohnDoe",
-    email: "johndoe@example.com",
-    phone: "+1234567890",
-    address: "123 Main Street, Townsville, Cityville, 12345",
-    age: 30,
-    previousOrders: [
-      { id: 1, item: "Mushroom Microdosing Kit", date: "2025-04-15" },
-      { id: 2, item: "Psychedelic Grow Kit", date: "2025-03-10" },
-    ],
-  };
+  const [userInfo, setUserInfo] = useState(null);
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        // Retrieve the token from localStorage (or wherever it's stored)
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+          throw new Error("No token found. Please log in.");
+        }
+
+        // Send the token in the Authorization header
+        const response = await axios.get("https://safeherb-server.onrender.com/api/user", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setUserInfo(response.data);
+      } catch (err) {
+        console.error("Error fetching user data:", err);
+        setError(err.response?.data?.error || "Failed to load user data.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  if (loading) {
+    return <p className="text-center text-lg text-gray-500">Loading...</p>;
+  }
+
+  if (error) {
+    return <p className="text-center text-lg text-red-500">{error}</p>;
+  }
 
   return (
-      <div className="container mx-auto px-4 py-8 bg-light rounded-lg shadow-lg">
-          <div className="w-full h-[60vh] mx-auto">
-                  <img className="object-cover w-full h-full" src={user} alt="safe_herb user" />
-                </div>
+    <div className="container mx-auto px-4 py-8 bg-light rounded-lg shadow-lg">
+      <div className="w-full h-[60vh] mx-auto">
+        <img
+          className="object-cover w-full h-full"
+          src={userImage}
+          alt="safe_herb user"
+        />
+      </div>
       <h1 className="text-3xl font-bold text-center text-primary mb-6">
-        Welcome, {userInfo.username}!
+        Welcome, {userInfo.name}!
       </h1>
 
       {/* User Information Section */}
@@ -45,7 +78,7 @@ export default function User() {
       {/* Previous Orders Section */}
       <div className="bg-backdrop p-6 rounded-lg shadow-md mb-8">
         <h2 className="text-2xl font-bold text-primary mb-4">Previous Orders</h2>
-        {userInfo.previousOrders.length > 0 ? (
+        {userInfo.previousOrders && userInfo.previousOrders.length > 0 ? (
           <ul className="list-disc pl-5">
             {userInfo.previousOrders.map((order) => (
               <li key={order.id} className="text-lg text-dark mb-2">
