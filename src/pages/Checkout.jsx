@@ -159,14 +159,17 @@ export default function Checkout() {
             <div className="text-red-500 text-4xl mb-4">
               <i className="fas fa-exclamation-circle"></i>
             </div>
-            <h2 className="text-xl font-bold text-dark mb-2">Action Required</h2>
+            <h2 className="text-xl font-bold text-dark mb-2">
+              Action Required
+            </h2>
             <p className="text-gray-600 mb-4">{alertMessage}</p>
-            <button
+            <Link
+              to="/login"
               onClick={() => setShowAlert(false)}
-              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+              className="bg-highlight text-white px-4 py-2 rounded-lg hover:border-2 hover:border-secondary transition"
             >
-              Dismiss
-            </button>
+              Login
+            </Link>
           </div>
         </div>
       )}
@@ -182,7 +185,8 @@ export default function Checkout() {
               Order Placed Successfully!
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              Thank you for your purchase! Your order has been placed successfully. You will receive an email confirmation shortly.
+              Thank you for your purchase! Your order has been placed
+              successfully. You will receive an email confirmation shortly.
             </p>
             <button
               onClick={() => setShowSuccessPopup(false)}
